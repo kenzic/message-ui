@@ -7,6 +7,7 @@ export interface Message {
 }
 
 export interface ChatListProps {
+  autoScroll?: boolean;
   children: React.ReactNode;
   className?: string;
 }
@@ -22,7 +23,7 @@ export interface HeaderProps {
   renderRight?: () => React.ReactNode;
 }
 
-export interface ValidationReturn {
+export interface Validation {
   valid: boolean;
   message: string;
 }
@@ -31,9 +32,10 @@ export interface ComposeProps {
   input: string;
   onSend?: (value: Message) => Promise<void>;
   onSubmit?: (value: React.FormEvent<HTMLFormElement>) => Promise<void>;
+  onReload?: () => void;
   onInputChange: (input: string) => void;
   onError?: (error: string) => void;
-  validate?: (value: string) => boolean | ValidationReturn;
+  validate?: (value: string) => boolean | Validation;
 }
 
 export interface ChatPanelProps extends ComposeProps {

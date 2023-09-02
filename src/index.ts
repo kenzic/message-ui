@@ -1,5 +1,6 @@
 export * from './components/Icons';
 export * from './components/BubbleMessage';
+export * from './components/BubbleTypingIndicator';
 export * from './components/ChatList';
 export * from './components/ChatWindow';
 export * from './components/ScrollAnchor';
@@ -12,7 +13,7 @@ export type {
     ChatListProps,
     BubbleMessageProps,
     HeaderProps,
-    ValidationReturn,
+    Validation,
     ComposeProps,
     ChatPanelProps,
 } from "./types";

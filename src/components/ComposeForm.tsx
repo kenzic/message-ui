@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from "uuid";
 
 import { SendIcon, ReloadIcon } from "./Icons";
 import { elementReset } from "./utils";
-import { ComposeProps, ValidationReturn } from "../types";
+import { ComposeProps, Validation } from "../types";
 import { colors } from "../config";
 
 const { WHITE } = colors;
@@ -121,7 +121,7 @@ function defaultIsValid(value: string): boolean {
   return value.trim() !== "";
 }
 
-function isValidationReturn(value: any): value is ValidationReturn {
+function isValidationType(value: any): value is Validation {
   return (
     typeof value === "object" &&
     value !== null &&
@@ -135,8 +135,9 @@ export function Compose({
   input = "",
 
   onSend,
-  onInputChange = () => {},
   onSubmit,
+  onReload = () => {},
+  onInputChange = () => {},
   onError = (message) => {},
   validate = defaultIsValid,
 }: ComposeProps) {
@@ -172,7 +173,7 @@ export function Compose({
       e.preventDefault();
       // validate
       const valid = validate(input);
-      if (typeof valid === "object" && isValidationReturn(valid)) {
+      if (typeof valid === "object" && isValidationType(valid)) {
         if (valid.valid === false) {
           return onError(valid.message);
         }
@@ -212,6 +213,7 @@ export function Compose({
           type="button"
           disabled={disabled}
           aria-label="reload button"
+          onClick={onReload}
         >
           <ReloadIcon />
         </StyledButton>

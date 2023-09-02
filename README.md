@@ -8,14 +8,14 @@ Message UI is designed to be a simple, easy to use, easy to compose and modify U
 Yarn
 
 ```
-$ yarn add message-ui
+$ yarn add message-ui styled-components
 ```
 
 
 NPM
 
 ```
-$ npm install message-ui
+$ npm install message-ui styled-components
 ```
 
 Finally, import into your project and have fun!
@@ -27,9 +27,58 @@ import { ComposePanel } from "message-ui";
 
 ## Usage
 
+### Simple App
+
+```js
+
+import React from "react";
+import { ChatWindow, ChatList, BubbleMessage, ComposePanel } from "message-ui";
+
+const ChatApp = () => {
+  // useChatAPI is not a real hook, but you get the idea
+  // it's a stand in for your integration with a server that supports messages
+  const { messages, input, setInput, append, reload, isLoading } = useChatAPI();
+
+  return (
+    <>
+      <ChatWindow>
+        {messages.length ? (
+          <ChatList>
+            {messages.map((message, index) =>
+              <BubbleMessage message={message} key={index} />
+            )}
+          </ChatList>
+        ) : null}
+      </ChatWindow>
+      <ComposePanel
+        input={input}
+        onSend={append}
+        onReload={reload}
+        disabled={isLoading}
+        onInputChange={setInput} />
+    </>
+  );
+};
+```
+
+### Customizing Components
+
+Message UI is designed to be easy to customize. All components are built using styled-components, so you can easily override the styles of any component. For example, if you wanted to change the style of the chat bubble `BubbleMessage` component, you could do the following:
+
+```tsx
+import { BubbleMessage } from "message-ui";
+
+const MyBubbleMessage = styled(BubbleMessage)`
+    font-size: 1.5rem;
+    color: ${(props) => (props.role === "user" ? "green" : "yellow")};
+    background-color: ${(props) => (props.role === "user" ? "yellow" : "green")};
+`;
+
+```
+
 ### Validating Input
 
-To validate the users input before sending use `isValid` function. This function takes in a string and returns a boolean or object matching `ValidationReturn` type. By default, the input validates that there is at least one character in the string (`return value.trim() !== ""`), but the requirements of your app may require strictor validation. To do this, pass in a function to the `isValid` prop that returns a boolean or `ValidationReturn` object.
+To validate the users input before sending use `validate` function. This function takes in a string and returns a `boolean` or object matching `Validation` type. By default, the input validates that theres at least one character in the string (`return value.trim() !== ""`), but the requirements of your app may require stricter validation. To do this, pass in a function to the `validate`:
 
 ```ts
 
@@ -56,12 +105,10 @@ function myValidationFunction(value: string) {
     }
 }
 ```
-
-then pass it to the isValid prop, which is accessible via the `ComposeForm` or `ComposePanel` components depending on your level of customization. For most cases, the `ComposePanel` component will be sufficient.
+then pass it to the `validate` prop, which is accessible via the `ComposeForm` or `ComposePanel` components depending on your level of customization. For most cases, the `ComposePanel` component will be sufficient.
 
 ```tsx
-<ComposePanel isValid={myValidationFunction} {...otherProps} />
-
+<ComposePanel validate={myValidationFunction} {...otherProps} />
 ```
 ## Development
 

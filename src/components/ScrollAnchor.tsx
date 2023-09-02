@@ -5,7 +5,7 @@ import { useInView } from "react-intersection-observer";
 import { useAtBottom } from "../hooks";
 
 interface ChatScrollAnchorProps {
-  trackVisibility?: boolean;
+  disabled?: boolean;
 }
 
 const Elem = styled.div`
@@ -14,22 +14,23 @@ const Elem = styled.div`
 `;
 
 export const ScrollAnchor: React.FC<ChatScrollAnchorProps> = ({
-  trackVisibility,
+  disabled = false,
 }) => {
   const isAtBottom = useAtBottom();
   const { ref, entry, inView } = useInView({
-    trackVisibility,
+    trackVisibility: !disabled,
     delay: 100,
     rootMargin: "0px 0px -140px 0px",
   });
 
   useEffect(() => {
-    if (isAtBottom && trackVisibility && !inView) {
+    if (isAtBottom && !disabled && !inView) {
       entry?.target.scrollIntoView({
         block: "start",
+        behavior: "smooth",
       });
     }
-  }, [inView, entry, isAtBottom, trackVisibility]);
+  }, [inView, entry, isAtBottom, disabled]);
 
   return <Elem ref={ref} />;
 };

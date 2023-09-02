@@ -18,7 +18,7 @@ const Bubble = styled.div`
   ${elementReset}
 
   display: flex;
-  padding: 0.475rem;
+  padding: 0.375rem;
   padding-left: 0.56rem;
   padding-right: 0.56rem;
   border-radius: 0.5rem;
@@ -47,11 +47,11 @@ const typingAnimation = keyframes`
 
 const BouncingDot = styled.div`
   animation: ${typingAnimation} 1.4s infinite ease-in-out;
-  border-radius: 0.4rem;
+  border-radius: 0.3rem;
   display: inline-block;
-  height: 0.8rem;
+  height: 0.6rem;
   margin-right: 0.4rem;
-  width: 0.8rem;
+  width: 0.6rem;
   background-color: ${GRAY};
 
   &:nth-child(1) {

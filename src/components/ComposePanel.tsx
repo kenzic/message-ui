@@ -55,7 +55,6 @@ const ComposePanelOuterWrapper = styled.div`
 `;
 
 export const ComposePanel: React.FC<ChatPanelProps> = ({
-  id,
   disabled,
   input,
 
@@ -75,6 +74,7 @@ export const ComposePanel: React.FC<ChatPanelProps> = ({
             onSubmit={onSubmit}
             onSend={onSend}
             onError={onError}
+            onReload={onReload}
             input={input}
             onInputChange={onInputChange}
             disabled={disabled}

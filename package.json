@@ -1,7 +1,7 @@
 {
-  "name": "message-ui",
-  "version": "0.9.1",
-  "description": "A simple composable UI for creating message interfaces",
+  "name": "@kenzic/message-ui",
+  "version": "0.9.8",
+  "description": "A simple composable UI library for creating message interfaces",
   "files": [
     "dist/**/*"
   ],

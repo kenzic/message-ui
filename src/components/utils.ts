@@ -9,7 +9,7 @@ export const elementReset = css`
     box-sizing: border-box;
     border-width: 0;
     border-style: solid;
-
+    border-color: ${GRAY};
 
   &::before,
   &::after {

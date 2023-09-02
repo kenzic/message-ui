@@ -17,11 +17,11 @@ const ChatListContainer = styled.div`
   max-width: 42rem;
 `;
 
-export const ChatList: React.FC<ChatListProps> = ({ children, className }) => {
+export const ChatList: React.FC<ChatListProps> = ({ children, className, autoScroll = true }) => {
   return (
     <ChatListContainer className={className}>
       {children}
-      <ScrollAnchor />
+      <ScrollAnchor disabled={!autoScroll} />
     </ChatListContainer>
   );
 };

@@ -2111,6 +2111,46 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@kenzic/message-ui@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "@kenzic/message-ui@workspace:."
+  dependencies:
+    "@babel/preset-env": ^7.22.10
+    "@babel/preset-react": ^7.22.5
+    "@babel/preset-typescript": ^7.22.11
+    "@storybook/addon-essentials": ^7.3.2
+    "@storybook/addon-interactions": ^7.3.2
+    "@storybook/addon-links": ^7.3.2
+    "@storybook/addon-onboarding": ^1.0.8
+    "@storybook/blocks": ^7.3.2
+    "@storybook/nextjs": ^7.3.2
+    "@storybook/react": ^7.3.2
+    "@storybook/react-webpack5": ^7.3.2
+    "@storybook/testing-library": ^0.2.0
+    "@types/node": ^20.5.1
+    "@types/react": ^18.2.20
+    "@types/react-dom": ^18.2.7
+    "@types/react-syntax-highlighter": ^15.5.7
+    "@types/uuid": ^9.0.3
+    "@typescript-eslint/parser": ^6.4.0
+    eslint: ^8.47.0
+    eslint-config-prettier: ^9.0.0
+    eslint-plugin-storybook: ^0.6.13
+    prettier: ^3.0.2
+    react: ^18.2.0
+    react-dom: ^18.2.0
+    react-intersection-observer: ^9.5.2
+    react-textarea-autosize: ^8.5.2
+    storybook: ^7.3.2
+    styled-components: ^6.0.7
+    typescript: ^5.1.6
+    uuid: ^9.0.0
+  peerDependencies:
+    react: ^18.2.0
+    styled-components: ^6.0.7
+  languageName: unknown
+  linkType: soft
+
 "@mdx-js/react@npm:^2.1.5":
   version: 2.3.0
   resolution: "@mdx-js/react@npm:2.3.0"
@@ -9292,46 +9332,6 @@ __metadata:
   checksum: 7268db63ed5169466540b6fb947aec313200bcf6d40c5ab722c22e242f651994619bcd85601602972d3c85bd2cc45a358a4c61937e9f11a061919a1da569b0c2
   languageName: node
   linkType: hard
-
-"message-ui@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "message-ui@workspace:."
-  dependencies:
-    "@babel/preset-env": ^7.22.10
-    "@babel/preset-react": ^7.22.5
-    "@babel/preset-typescript": ^7.22.11
-    "@storybook/addon-essentials": ^7.3.2
-    "@storybook/addon-interactions": ^7.3.2
-    "@storybook/addon-links": ^7.3.2
-    "@storybook/addon-onboarding": ^1.0.8
-    "@storybook/blocks": ^7.3.2
-    "@storybook/nextjs": ^7.3.2
-    "@storybook/react": ^7.3.2
-    "@storybook/react-webpack5": ^7.3.2
-    "@storybook/testing-library": ^0.2.0
-    "@types/node": ^20.5.1
-    "@types/react": ^18.2.20
-    "@types/react-dom": ^18.2.7
-    "@types/react-syntax-highlighter": ^15.5.7
-    "@types/uuid": ^9.0.3
-    "@typescript-eslint/parser": ^6.4.0
-    eslint: ^8.47.0
-    eslint-config-prettier: ^9.0.0
-    eslint-plugin-storybook: ^0.6.13
-    prettier: ^3.0.2
-    react: ^18.2.0
-    react-dom: ^18.2.0
-    react-intersection-observer: ^9.5.2
-    react-textarea-autosize: ^8.5.2
-    storybook: ^7.3.2
-    styled-components: ^6.0.7
-    typescript: ^5.1.6
-    uuid: ^9.0.0
-  peerDependencies:
-    react: ^18.2.0
-    styled-components: ^6.0.7
-  languageName: unknown
-  linkType: soft
 
 "methods@npm:~1.1.2":
   version: 1.1.2
